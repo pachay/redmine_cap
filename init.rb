@@ -1,8 +1,8 @@
 Redmine::Plugin.register :redmine_cap do
   name 'Redmine Cap plugin'
-  author 'Author name'
-  description 'This is a plugin for Redmine'
+  author 'Andrey Pachay'
+  description 'This is a plugin allow Redmine to start cap tasks'
   version '0.0.1'
-  url 'http://example.com/path/to/plugin'
-  author_url 'http://example.com/about'
+  url 'http://github.com/pachay/redmine_cap'
+  author_url 'http://github.com/pachay'
 end
