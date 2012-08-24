@@ -10,4 +10,7 @@ class CapController < ApplicationController
 
   def build
   end
+
+  def index
+  end
 end
