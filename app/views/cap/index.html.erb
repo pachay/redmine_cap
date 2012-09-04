@@ -1,8 +1,14 @@
 <h2>Deploy</h2>
 
+<h2>Тестирование</h2>
 <p>
-  <%= link_to 'Протестировать', { :action => 'build', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-checked' %>
+  <%= link_to 'Выполнить полный тест', { :action => 'build', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-checked' %>
 </p>
+<p>
+  <%= link_to 'Синхронизировать с TEST', { :action => 'deploy_to_test', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-move' %>
+</p>
+
+<h2>Деплоймент</h2>
 <p>
   <%= link_to 'Синхронизировать с PRO', { :action => 'deploy', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-move' %>
 </p>
