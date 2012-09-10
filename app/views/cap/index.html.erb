@@ -17,4 +17,4 @@
   <%= link_to 'Откатить с PRO', { :action => 'rollback', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-reload' %>
 </p>
 
-<div id="result"></div>
+<script type="text/javascript" src="https://test.ailove.ru:8080/job/<%=params[:project_id] %>/jswidgets/health?skipDescription=true"></script>
