@@ -6,6 +6,11 @@ class CapController < ApplicationController
     @result = `/srv/admin/bin/cap.sh #{@project.identifier.to_s} ailove:factory_deploy 2>&1`
   end
 
+  def deploy_to_test
+    @project = Project.find(params[:project_id])
+    @result = `/srv/admin/bin/copydb-pro2dev.sh #{@project.identifier.to_s}` + "\n" +`/srv/admin/bin/symfony-migrate.sh #{@project.identifier.to_s}`
+  end
+
   def rollback
     @project = Project.find(params[:project_id])
     @result = `/srv/admin/bin/cap.sh #{@project.identifier.to_s} ailove:factory_rollback 2>&1`

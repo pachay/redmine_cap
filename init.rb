@@ -8,5 +8,5 @@ Redmine::Plugin.register :redmine_cap do
   project_module :redmine_cap do
     permission :redmine_cap_index, :cap => [:index, :build, :deploy, :rollback]
   end
-  menu :project_menu, :redmine_cap, { :controller => 'cap', :action => 'index' }, :caption => 'Deploy', :after => :repository, :param => :project_id
+  menu :project_menu, :redmine_cap, { :controller => 'cap', :action => 'index' }, :caption => 'Синхронизация', :after => :repository, :param => :project_id
 end
