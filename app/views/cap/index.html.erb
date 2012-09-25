@@ -1,22 +1,30 @@
 <h2>Тестирование</h2>
 <p>
-  <%= link_to 'Выполнить полный тест', { :action => 'build', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-checked' %>
+  Ветка: <b>test</b>
+<p>
+<p>
+  <%= link_to 'Выполнить полный тест', { :action => 'build', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-checked' %><br />
+  БД копируется с PRO на тестовую среду, накатываются изменения в БД (миграции) и выполняются тестовые сценарии.
 </p>
 <p>
-  <%= link_to 'Синхронизировать с TEST', { :action => 'deploy_to_test', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-move' %>
+  <%= link_to 'Обновить тестовую БД', { :action => 'deploy_to_test', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-move' %><br />
+  Тестовая БД обновляется без выполнения тестов.
 </p>
 
-<h2>Синхронизация</h2>
+<a href="http://test.ailove.ru/job/<%=params[:project_id] %>/">Тестовые сценарии Jenkins</a>
+<script type="text/javascript" src="https://test.ailove.ru/job/<%=params[:project_id] %>/jswidgets/health?skipDescription=true"></script>
+
+<h2>Синхронизация с PRO</h2>
 <p>
-  <%= link_to 'Синхронизировать с PRO', { :action => 'deploy', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-move' %>
+  Ветка: <b>master</b>
 </p>
 <p>
-  <%= link_to 'Синхронизировать с PRO независимо от статуса теста (не рекомендуется)', { :action => 'deploy', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-warning' %>
+  <%= link_to 'Синхронизировать с PRO', { :action => 'deploy', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-move' %><br />
+  Перенести код на боевой сервер и накатить изменения в БД.
 </p>
 <p>
-  <%= link_to 'Откатить с PRO', { :action => 'rollback', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-reload' %>
+  <%= link_to 'Откатить с PRO', { :action => 'rollback', :project_id => params[:project_id] }, :remote => true, :method => :post, :class => 'icon icon-reload' %><br />
+  Откатить код проекта к состоянию, соответствующему предыдущей синхронизации.
 </p>
 
 <div id="result"></div>
-
-<script type="text/javascript" src="https://test.ailove.ru/job/<%=params[:project_id] %>/jswidgets/health?skipDescription=true"></script>
